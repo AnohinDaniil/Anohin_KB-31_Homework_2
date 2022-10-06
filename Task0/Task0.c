@@ -43,14 +43,14 @@ void out_point(struct Point* mas)
 struct Point* del_point(struct Point** mas, int index){
   struct Point* temp = (*mas + index);
   int i;
-  for (i = index; i <= (*mas)->size; i++)
+  for (i = index; i <= (*mas)->size-1; i++)
   {
     ((*mas) + i)->x = ((*mas) + i + 1)->x;
     ((*mas) + i)->y = ((*mas) + i + 1)->y;
     ((*mas) + i)->weight = ((*mas) + i + 1)->weight;
   }
   (*mas)->size--;
-  //mas = (struct Point**) realloc (*mas, (*mas)->size * sizeof(struct Point));
+  mas = (struct Point**) realloc (*mas, (*mas)->size * sizeof(struct Point));
   return temp;
 }
 
